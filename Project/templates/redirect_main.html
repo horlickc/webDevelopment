@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ggexplorer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="icon" type="image/icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+    
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+.login{
+    margin-right: 10px;
+}
+    
+    
+body{
+    background-image: url({{ url_for('static', filename='images/bg1.png')}});
+    background-size: cover; 
+    background-attachment: fixed;
+    margin: 0px;
+}    
+
+
+.whole{
+    background: white;
+    margin-top: -20px !important;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+    
+* {
+        margin-top: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+#myCarousel{
+    width: 50%;
+    margin-left: 25%;
+    position: relative;
+
+}  
+    
+.container1 {
+    background: white;
+    position: relative;
+    text-align: center;
+    height: 180px;
+    color: white;
+}
+
+.word {
+    position: absolute;
+    top: 15%;
+
+}
+
+.banner {
+    width: 100%;
+    height: 180px;
+}
+
+h2,h3,p{
+    margin: 20px;
+}
+
+footer{ 
+    width: 100%;
+    display: table;
+    vertical-align: bottom;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    background-color: #ccffff;
+    color: black;
+}
+
+ol {
+    margin: 20px;
+    text-indent: 0px;
+    list-style-position: inside;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+    <div class="container1">
+        <img src="{{url_for('static', filename='images/heading3.png')}}" class="banner" />
+        
+    </div>
+</header>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+              <li class="active"><a>Home</a></li>
+              <li><a href="http://localhost:8000/features">Features</a></li>
+              <li><a href="http://localhost:8000/download">Product</a></li>
+              <li><a href="http://localhost:8000/contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> {{email}}</a></li>
+              <li class="login"><a href="http://localhost:8000/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+
+    </div>
+</nav>
+<div class="whole">
+<div class="title">
+    <div>
+        <h2 style="text-align: center"></h2><br>
+    </div>
+</div>
+
+<div class="">
+    <form class="form-horizontal">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                  <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                  <div class="item active">
+                      <img src="{{url_for('static', filename='images/1.jpg')}}" alt="Los Angeles" style="width:100%;">
+                  </div>
+
+                  <div class="item">
+                      <img src="{{url_for('static', filename='images/2.jpg')}}" alt="Chicago" style="width:100%;">
+                  </div>
+
+                  <div class="item">
+                      <img src="{{url_for('static', filename='images/3.jpg')}}" alt="New york" style="width:100%;">
+                  </div>
+                
+                  <div class="item">
+                      <img src="{{url_for('static', filename='images/4.jpg')}}" alt="New york" style="width:100%;">
+                  </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="form-group col-sm-12">
+          <h2>Welcome to 205CDE!</h2>
+                <p>This module will lay the foundations of these skills and will enable students to develop interactive, dynamic websites that perform useful functions.</p>
+
+            <h3>INTRODUCTION</h3>
+                <p>This module guide provides you with information about the module, aims and summary, assessment etc. and should be read in conjunction with the Module Descriptor found on the Module Information Directory (MID) and also the Module Web.</p>
+
+            <h3>AIMS AND SUMMARY</h3>
+                <p>The web has evolved over the last two decades from a collection of pages containing simple static content to delivering a huge range of web applications with advanced interfaces and capabilities. These require developers with a complex range of skills and the ability to work to clearly defined web standards.</p>
+
+                <p>This module will lay the foundations of these skills and will enable students to develop interactive, dynamic websites that perform useful functions.</p>
+
+                <p>The module introduces several important technoogies:</p>
+                    <ol>
+                        <li>The use of server technologies t host both static and dynamic websites</li>
+                        <li>The use of HTML5 and CSS3 to develop accessible, standards-complaint web pages</li>
+                        <li>The use of server-side languages to connect to generate data-driven websites</li>
+                        <li>The application of JavaScript client frameworks to add advanced interactions</li>
+                    </ol>
+
+            <h3>MODULE LEARNING OUTCOMES</h3>
+                <p>On completion of Developing the Modern Web a student shoud be able to:</p>
+                    <ol>
+                        <li>Install, configure and secure a web server ready for non-static content</li>
+                        <li>Produce a range of standards based websites, incorporating media objects that can pass basic accessibility and usability tests.</li>
+                        <li>Design and build data-driven dynamic websites that utilise both server-side and client-side scripting language technologies.</li>
+                    </ol>
+        </div>
+    </form>
+</div>
+
+
+
+      <!--FOOTER-->
+      <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+      
+          <!--FOOTER-->
+          <div class="footer-copyright py-3 text-center">
+              <div class="container-fluid">
+                    All copyright reserved<br>
+                    Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a>
+              </div>
+          </div>
+          <!--/.FOOTER-->
+      
+      </footer>
+      <!--/.FOOTER-->
+                      
+</div>
+    
+</body>
+</html>
