@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ggexplorer/login</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="icon" type="image/icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+<style>
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+
+
+.main{
+    text-align: center;
+    
+}    
+
+body{
+    background-image: url({{ url_for('static', filename='images/bg1.png')}});
+    background-size: cover; 
+    background-attachment: fixed;
+    margin: 0px;
+}    
+
+
+.whole{
+    background: white;
+    margin-top: -20px !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    bottom: 0;
+    padding-bottom: 380px;
+}
+    
+* {
+        margin-top: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    
+.container1 {
+    background: white;
+    position: relative;
+    text-align: center;
+    height: 180px;
+    color: white;
+}
+
+.word {
+    position: absolute;
+    top: 15%;
+
+}
+
+.banner {
+    width: 100%;
+    height: 180px;
+}
+
+#form{
+    text-align: center;
+
+}
+
+
+footer{ 
+    width: 100%;
+    display: table;
+    vertical-align: bottom;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    background-color: #ccffff;
+    color: black;
+}
+
+
+    
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="container1">
+        <img src="{{url_for('static', filename='images/heading3.png')}}" class="banner" />
+        
+    </div>
+</header>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+              <li><a href="http://localhost:8000/main">Home</a></li>
+              <li><a href="http://localhost:8000/features">Features</a></li>
+              <li><a href="http://localhost:8000/download">Product</a></li>
+              <li><a href="http://localhost:8000/contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li class="login"><a><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="whole">
+  <div>
+    <div class="title">
+      <div>
+          <h2 style="text-align: center">Login</h2><br><br>
+      </div>
+    </div>
+    <form class="form-horizontal" id="form" action="http://localhost:8000/premission">
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-xs-4 col-xs-offset-4 col-lg-4 col-lg-offset-4">
+              <input type="email" class="form-control" id="username" name="username" placeholder="Put down your username HERE">
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-4 col-md-4 col-xs-4 col-xs-offset-4 col-lg-4 col-lg-offset-4">
+            <input type="password" class="form-control" id="password" name="password" placeholder="and your password HERE">
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <button type="submit" class="btn btn-default">Let's GO!</button>
+          </div>
+        </div>
+    </form>
+  </div>
+
+
+<!--
+  <footer class="page-footer font-small stylish-color-dark pt-4 mt-4"> 
+    <div class="footer-copyright py-3 text-center">
+      <div class="container-fluid">
+        All copyright reserved<br>
+        Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a>
+      </div>
+    </div>
+  </footer> 
+-->  
+
+</div>
+
+<!--
+<div class="content">
+  <div class="main">
+    <h2 style="text-align: center">Login</h2>
+      <br>
+      <br>
+  </div>
+
+  <div class="">
+    <form class="form-horizontal" action="premission">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="email">Email:</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="pwd">Password:</label>
+        <div class="col-sm-4">          
+          <input type="password" class="form-control" id="pwd" name="pwd">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-7">
+          <div class="col-sm-offset-10 col-sm-1">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>  
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <div>
+      <p></p>
+    </div>
+  </footer>
+
+</div>
+<!--<footer>
+    <div>Copyright</div>
+    <div>Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a></div>
+</footer>
+-->  
+
+-->
+
+</body>
+</html>
