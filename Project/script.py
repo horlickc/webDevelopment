@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import pymysql.cursors
 import time
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
@@ -60,25 +61,39 @@ def premission():
 		cursor = db.cursor()
 		#maxid = cursor.fetchone()
 		# Execute the SQL command
-		sql = ("SELECT un, pw FROM userinfo WHERE un = '"+usn+"'")
-		cursor.execute(sql)
-		# Commit your changes in the database
-		db.commit()
-		results = cursor.fetchall()
-		for row in results:
-			custName = row[0]
-			custPassword = row[1]
-			print ("usn = %s, pwd = %s" % (custName, custPassword))
-			return redirect(url_for('redirectmain', username = custName))
-			time.sleep(5)
-			##custPwd = password
-	return render_template("redirect_main.html", error = error)
+		try:
+			sql = ("SELECT * FROM userinfo WHERE un = '"+usn+"'")
+			cursor.execute(sql)
+			result = cursor.fetchall()
+			for info in result:
+				if usn == str(info[1]):
+					if pwd == str(info[2]):
+						return render_template("main.html", usn = usn)
+					else:
+						return render_template("login.html", msg = "worng pw")
+				else:
+					return render_template("login.html", msg = "error")
+		except:
+			return render_template("login.html", msg = "error")
+	
+	
+#			for row in results:
+#				custName = row[0]
+#				custPassword = row[1]
+#				print ("usn = %s, pwd = %s" % (custName, custPassword))
+#				return render_template("redirect_main.html", error = error)
+#				##custPwd = password
+#	return error
 	db.close()
 
 
 @app.route("/redirectmain")
 def redirectmain():
 	return render_template("redirect_main.html")
+
+@app.route("/dashboard")
+def dashboard():
+	return render_template("dashboard.html")
 
 
 @app.route("/logout", methods = ['POST', 'GET'])

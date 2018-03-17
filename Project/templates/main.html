@@ -118,14 +118,19 @@ ol {
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-              <li class="active"><a>Home</a></li>
-              <li><a href="http://localhost:8000/features">Features</a></li>
-              <li><a href="http://localhost:8000/download">Product</a></li>
-              <li><a href="http://localhost:8000/contact">Contact</a></li>
+            <li class="active"><a>Home</a></li>
+            <li><a href="http://localhost:8000/features">Features</a></li>
+            <li><a href="http://localhost:8000/download">Product</a></li>
+            <li><a href="http://localhost:8000/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% if usn %}
+            <li><a href="http://localhost:8000/dashboard"><span class="glyphicon glyphicon-user"></span> {{usn}}</a></li>
+            <li class="logout"><a href="http://localhost:8000/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            {% else %}
+            <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+            <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
         </ul>
 
     </div>
