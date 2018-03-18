@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ggexplorer/features</title>
+<title>ggexplorer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,17 +24,22 @@
 .login{
     margin-right: 10px;
 }
-    
-.outer {
-    display:table;
-    width:100%;
-    height:100%;
-}
+
     
 body{
-    margin-bottom: 55px;
-}    
-    
+    background-image: url({{ url_for('static', filename='images/bg1.png')}});
+    background-size: cover; 
+    background-attachment: fixed;
+    margin: 0px;
+}   
+ 
+.whole{
+    background: white;
+    margin-top: -20px !important;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 * {
         margin-top: 0;
         padding: 0;
@@ -50,9 +55,10 @@ body{
 }    
     
 .container1 {
+    background: white;
     position: relative;
     text-align: center;
-    height: 140px;
+    height: 180px;
     color: white;
 }
 
@@ -64,9 +70,105 @@ body{
 
 .banner {
     width: 100%;
-    height: 140px;
+    height: 180px;
 }
+
+.title {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-top-color: black;
+    padding: 0.5em 0 0.5em 0;
+    font-size: 3em;
+    text-align: center
+}
+
+.ngn {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.ngds {
+    font: italic 19px Georgia, Times, "Comic", serif;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.left {
+    float: left;
+    margin-left: 5%;
+}
+
+
+.hlpic {
+    width: 49%;
+    float: left;
+    margin-right: 20px;
+}
+
+.hlpic2 {
+    width: 49%;
+    float: right;
+    margin-left: 20px;
+}
+
+.eventtitle {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    border-bottom-width: 2px;
+    border-bottom-style: dotted;
+    border-bottom-color: black;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.eventtitle2 {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    border-bottom-width: 2px;
+    border-bottom-style: dotted;
+    border-bottom-color: black;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: right;
+}
+
+.date {
+    font: bold italic 1em Georgia, Times, "Times New Roman", serif;
+}
+
+.date2 {
+    font: bold italic 1em Georgia, Times, "Times New Roman", serif;
+    margin-left: 5%;
+    text-align: right;
+}
+
+.info2 {
+    margin-left: 5%;
+
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
     
+}
+
+.row {
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.row::after {
+    clear: both;
+    display: table;
+}
     
 footer{ 
     position: absolute;
@@ -88,12 +190,7 @@ footer{
 
 <header>
     <div class="container1">
-        <img src="{{url_for('static', filename='images/banner.jpg')}}" class="banner" />
-    <div class="word">
-        <a href="http://localhost:8000/main">
-            <img src="{{url_for('static', filename='images/HEADING.png')}}"/>
-        </a>
-    </div>
+        <img src="{{url_for('static', filename='images/heading3.png')}}" class="banner" />
     </div>
 </header>
 
@@ -101,31 +198,62 @@ footer{
     <div class="container-fluid">
         <ul class="nav navbar-nav">
               <li><a href="http://localhost:8000/main">Home</a></li>
-              <li class="active"><a>Features</a></li>
-              <li><a href="http://localhost:8000/download">Product</a></li>
+              <li class="active"><a>Special</a></li>
+              <li><a href="http://localhost:8000/download">Explore</a></li>
               <li><a href="http://localhost:8000/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% if usn %}
+            <li><a href="http://localhost:8000/dashboard"><span class="glyphicon glyphicon-user"></span> {{usn}}</a></li>
+            <li class="logout"><a href="http://localhost:8000/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            {% else %}
+            <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+            <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
         </ul>
   </div>
 </nav>
 
-<div class="main" style="text-align: center">
-  <h2>Features</h2>
+<div class="whole">
+    <div>
+        <div>
+            <h2 class="title">Monthly Highlight</h2><br>
+        </div>
+        <div>
+            <h2 class="eventtitle"><img class="hlpic" src="{{url_for('static', filename='images/csgot1.jpg')}}">THE UPCOMING TOURNAMENT</h2>
+            <p class="date">20 - 24 MARCH</p>
+            <p class="info">2018 marks the fifth year in a row that Cologne will be greeting players, talents and fans for a whole weekend of pure Counter-Strike: Global Offensive action from July 6th to 8th at ESL One Cologne 2018! Forget everything you have seen before and get ready for awesome matches, fun fan activities around the event, signing sessions with the teams and much more! </p>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div>
+            <h2 class="eventtitle2"><img class="hlpic2" src="{{url_for('static', filename='images/lolt1.jpg')}}">THE UPCOMING TOURNAMENT</h2>
+            <p class="date2">28 - 29 MARCH</p>
+            <p class="info2">This year, history is on the line as we take our global events to some of our most established competitive regions. Following our record-breaking 2017 World Championship in China, we’re proud to be hosting the Mid-Season Invitational for the first time in Germany and France, before bringing the 2018 World Championship back to the home turf of five of the past seven World Championship winners: Korea. In between MSI and Worlds, regions will battle it out at Rift Rivals events taking place all over the globe, and we will cap off the year with the All-Star Event.</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="{{url_for('static', filename='images/re72.jpg')}}" alt="Fjords" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="{{url_for('static', filename='images/re71.jpg')}}" alt="Forest" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="{{url_for('static', filename='images/re73.jpg')}}" alt="Mountains" style="width:100%">
+            </div>
+        </div>
+        <div>
+            <h2 class="ngn">
+                Resident Evil 7: Biohazard
+            </h2>
+            <h2 class="ngds">
+                is set in mid-2017 somewhere in the southern United States, where there have been reports of "ghosts" sighted around the bayou of the town, Dulvey. The game proper takes place after the events of Beginning Hour, which ended with the murder of a three-man TV crew by the infected Baker family members Jack and Mia.
+            </h2>
+        </div>
+        <br><br><br>
+        <div><p style="text-align: center;">endpage</p></div>
+        <br>
+    </div>                      
 </div>
-
-<div>
-
-
-</div>
-
-
-<!--<footer>
-    <div>Copyright</div>
-    <div>Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a></div>
-</footer>
--->    
 </body>
 </html>

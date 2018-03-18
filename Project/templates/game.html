@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
 <style>
-
+    
 .affix {
     top: 0;
     width: 100%;
@@ -21,30 +21,25 @@
     padding-top: 70px;
 }
 
+.login{
+    margin-right: 10px;
+}
 
-
-.main{
-    text-align: center;
     
-}    
-
 body{
     background-image: url({{ url_for('static', filename='images/bg1.png')}});
     background-size: cover; 
     background-attachment: fixed;
     margin: 0px;
-}    
-
-
+}   
+ 
 .whole{
     background: white;
     margin-top: -20px !important;
     margin-left: 10%;
     margin-right: 10%;
-    bottom: 0;
-    padding-bottom: 380px;
 }
-    
+
 * {
         margin-top: 0;
         padding: 0;
@@ -55,6 +50,9 @@ body{
         background: transparent;
     }
 
+.main{
+    margin: 20px;
+}    
     
 .container1 {
     background: white;
@@ -75,7 +73,7 @@ body{
     height: 180px;
 }
 
-h2 {
+.title {
     font: bold italic 2em Georgia, Times, "Times New Roman", serif;
     border-bottom-width: 10px;
     border-bottom-style: solid;
@@ -85,22 +83,65 @@ h2 {
     border-top-color: black;
     padding: 0.5em 0 0.5em 0;
     font-size: 3em;
+    text-align: center
 }
 
+.ngn {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.ngds {
+    font: italic 2em Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.left {
+    float: left;
+    margin-left: 5%;
+}
+
+
+.hlpic {
+    width: 49%;
+    float: left;
+    margin-right: 20px;
+}
+
+.eventtitle {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.info {
+    margin-right: 5%;
+}
+
+input[type=number] {
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 4px;
+    height: 30px;
+}
+    
 footer{ 
+    position: absolute;
     width: 100%;
     display: table;
-    vertical-align: bottom;
-    width: 100%;
     text-align: center;
     height: 40px;
+    bottom: 0;
     background-color: #ccffff;
     color: black;
 }
 
-
-    
 </style>
+
 
 </head>
 
@@ -109,7 +150,6 @@ footer{
 <header>
     <div class="container1">
         <img src="{{url_for('static', filename='images/heading3.png')}}" class="banner" />
-        
     </div>
 </header>
 
@@ -118,7 +158,7 @@ footer{
         <ul class="nav navbar-nav">
               <li><a href="http://localhost:8000/main">Home</a></li>
               <li><a href="http://localhost:8000/special">Special</a></li>
-              <li><a href="http://localhost:8000/download">Explore</a></li>
+              <li class="active"><a href="http://localhost:8000/download">Explore</a></li>
               <li><a href="http://localhost:8000/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -130,47 +170,31 @@ footer{
             <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             {% endif %}
         </ul>
-
-    </div>
+  </div>
 </nav>
 
 <div class="whole">
-  <div>
-    <div class="title">
-      <div>
-          <h2 style="text-align: center">Login</h2><br><br>
-      </div>
+    <div>
+        <div>
+            <h2 class="title">Game</h2><br>
+        </div>
+        <div>
+            <h2 class="eventtitle"><img class="hlpic" src="{{url_for('static', filename='images/4.jpg')}}">PLAYERUNKNOWN'S BATTLEGROUND</h2>
+            <p class="info"> Our BATTLE ROYALE game-mode will put up to 100 players on a remote island
+            for a winner-takes-allshowdown where strategic gameplay is as important as shooting skills.
+            Players will enter a last-man-standing battle where they try to locate weapons, vehicles and supplies in a graphically and tactically rich battleground
+            that eventually forces players into a shrinking play zone as they engage in a tense and spectacular fight to the death. </p>
+            <br>
+            <form action="http://localhost:8000/download/purchase" method="post" id="form">
+                <input type="number" name="no" value="1" min="1" max="50" class="no">
+                <button type="button" class="btn btn-info">Buy Now!</button>
+            </form>
+            <br>
+            <p>Offical Werbsite: <a href="https://playbattlegrounds.com/main.pu">https://playbattlegrounds.com/main.pu</a></p>
+            <br><br><br><br><br><br><br><br><br><br>
+        </div>
     </div>
-    <form class="form-horizontal" id="form" action="http://localhost:8000/premission" method="post">
-        <div class="form-group">
-            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-xs-4 col-xs-offset-4 col-lg-4 col-lg-offset-4">
-              <label>Username</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Put down your username HERE" value="{{request.form.username}}" required>
-            </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-4 col-sm-offset-4 col-md-4 col-xs-4 col-xs-offset-4 col-lg-4 col-lg-offset-4">
-            <label>Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="and your password HERE" value="{{request.form.password}}" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <div style="text-align: center;">
-            <button type="submit" class="btn btn-default">Let's GO!</button>
-          </div>
-        </div>
-        <div class="form-group">
-          <div>
-            {% if msg %}
-            <b>{{msg}}</b>
-            {% endif %}
-          </div>
-        </div>
-    </form>
-    <br>
-  </div> 
-
-</div>
-
+    <br>                  
+</div>   
 </body>
 </html>

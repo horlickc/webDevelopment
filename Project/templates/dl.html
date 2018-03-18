@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ggexplorer/product</title>
+<title>ggexplorer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,8 +32,18 @@
 }
     
 body{
+    background-image: url({{ url_for('static', filename='images/bg1.png')}});
+    background-size: cover; 
+    background-attachment: fixed;
     margin: 0px;
-}    
+}   
+ 
+.whole{
+    background: white;
+    margin-top: -20px !important;
+    margin-left: 10%;
+    margin-right: 10%;
+}
     
 * {
         margin-top: 0;
@@ -43,11 +53,32 @@ body{
         font-size: 100%;
         vertical-align: baseline;
         background: transparent;
-    }
+    }  
+    
+.container1 {
+    background: white;
+    position: relative;
+    text-align: center;
+    height: 180px;
+    color: white;
+}
+
+.word {
+    position: absolute;
+    top: 15%;
+
+}
+
+.banner {
+    width: 100%;
+    height: 180px;
+}
 
 .main {
-    max-width: 1000px;
-    margin: auto;
+    background: white;
+    margin-top: -20px !important;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 h1 {
@@ -55,8 +86,32 @@ h1 {
     word-break: break-all;
 }
 
+.title {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-top-color: black;
+    padding: 0.5em 0 0.5em 0;
+    font-size: 3em;
+    text-align: center;
+}
+
+ .rowtitle {
+    font: bold italic 2em Georgia, Times, "Times New Roman", serif;
+    border-bottom-width: 2px;
+    border-bottom-style: dashed;
+    border-bottom-color: black;
+    padding: 0.5em 0 0.5em 0;
+    font-size: 3em;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 .row {
-    margin: 8px -16px;
+    margin: -16px;
 }
 
 /* Add padding BETWEEN each column */
@@ -98,24 +153,6 @@ h1 {
     }
 }   
     
-.container1 {
-    position: relative;
-    text-align: center;
-    height: 140px;
-    color: white;
-}
-
-.word {
-  position: absolute;
-    top: 15%;
-
-}
-
-.banner {
-    width: 100%;
-    height: 140px;
-}
-    
 footer{ 
     position: absolute;
     width: 100%;
@@ -136,12 +173,7 @@ footer{
 
 <header>
     <div class="container1">
-        <img src="{{url_for('static', filename='images/banner.jpg')}}" class="banner" />
-        <div class="word">
-            <a href="http://localhost:8000/main">
-                <img src="{{url_for('static', filename='images/HEADING.png')}}"/>
-            </a>
-        </div>
+        <img src="{{url_for('static', filename='images/heading3.png')}}" class="banner" />
     </div>
 </header>
 
@@ -149,57 +181,120 @@ footer{
     <div class="container-fluid">
         <ul class="nav navbar-nav">
               <li><a href="http://localhost:8000/main">Home</a></li>
-              <li><a href="http://localhost:8000/features">Features</a></li>
-              <li class="active"><a>Product</a></li>
+              <li><a href="http://localhost:8000/special">Special</a></li>
+              <li class="active"><a>Explore</a></li>
               <li><a href="http://localhost:8000/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% if usn %}
+            <li><a href="http://localhost:8000/dashboard"><span class="glyphicon glyphicon-user"></span> {{usn}}</a></li>
+            <li class="logout"><a href="http://localhost:8000/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            {% else %}
+            <li><a href="http://localhost:8000/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+            <li class="login"><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
         </ul>
 
     </div>
 </nav>
     
 <div class="main">
-    <h2 style="text-align: center;">Products</h2>
+    <h2 class="title">Explore</h2>
     <div class="row">
+        <h2 class="rowtitle">PC</h2>
         <div class="column">
             <div class="content">
-                <img src="{{url_for('static', filename='images/1.jpg')}}" alt="Mountains" style="width:100%">
-                <h3>First</h3>
-                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/pubg.jpg')}}" alt="Mountains" style="width:100%"></a>
+                <h3>PLAYERUNKNOWN'S BATTLEGROUND</h3>
+                <p>Survive is the only rule! Players random drop on any map and fight against 99 other players. Find gears and guns to defeat them!</p>
             </div>
         </div>
         <div class="column">
             <div class="content">
-                <img src="{{url_for('static', filename='images/2.jpg')}}" alt="Lights" style="width:100%">
-                    <h3>Second</h3>
-                    <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/csgo.jpg')}}" alt="Lights" style="width:100%"></a>
+                    <h3>Counter-Strike Global Offensive</h3>
+                    <p>The most epic game forever. 5 counter terrorist player versus 5 terrorist in a map, take control on the bomb site!</p>
             </div>
         </div>
         <div class="column">
             <div class="content">
-                <img src="{{url_for('static', filename='images/3.jpg')}}" alt="Nature" style="width:100%">
-                  <h3>Third</h3>
-                  <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/fn.jpg')}}" alt="Nature" style="width:100%"></a>
+                  <h3>FORTNITE BATTLE ROYALE</h3>
+                  <p>The gamemode is simula to PUBG, however player can build blocks and stairs to against enemies. Let's go build some bridge.</p>
             </div>
         </div>
         <div class="column">
             <div class="content">
-                <img src="{{url_for('static', filename='images/4.jpg')}}" alt="Mountains" style="width:100%">
-                  <h3>Fourth</h3>
-                  <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/bf1.jpg')}}" alt="Mountains" style="width:100%"></a>
+                  <h3>Battlefield 1</h3>
+                  <p>The remake of Battlefield 1, better graphic, better gamemode, better experience and better feeling. No more pixel on your eyeballs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="rowtitle">PlayStation</h2>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/mhw.jpg')}}" alt="Mountains" style="width:100%"></a>
+                <h3>Monster Hunter World</h3>
+                <p>Another epic masterpiece of the year, remember how do you slave those monster when you were young? Remember how excited when you play with friends with PSP? Go be a brave hunter!!</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/gv.jpg')}}" alt="Lights" style="width:100%"></a>
+                    <h3>Gundam Versus</h3>
+                    <p>Control a giant robot and fight against emeny is not an easy job, if you can not control it well, who else can secure the universe?</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/gts.jpg')}}" alt="Nature" style="width:100%"></a>
+                  <h3>Grand Turismo Sport</h3>
+                  <p>Riding in a Gr.1 in VR is feeling great. Have you tried it? It looks like I am a real professional racer and running in the track.</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/d2.jpg')}}" alt="Mountains" style="width:100%"></a>
+                  <h3>Destiny 2</h3>
+                  <p>Rush your level and upgrade your armor to defeat higher level creatures. You think they are annoying? KILL! They are ugly? KILL!! There is no mercy.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="rowtitle">XBox</h2>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/f7.jpg')}}" alt="Mountains" style="width:100%"></a>
+                <h3>Forza 7</h3>
+                <p>I never play any games on XBox because its sucks!! </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/f18.jpg')}}" alt="Lights" style="width:100%"></a>
+                    <h3>FIFA 18</h3>
+                    <p>I never play any games on XBox because its sucks!! </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/aco.jpg')}}" alt="Nature" style="width:100%"></a>
+                  <h3>Assassins Creed Origins</h3>
+                  <p>I never play any games on XBox because its sucks!! </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <a href="http://localhost:8000/download/game"><img src="{{url_for('static', filename='images/cod.jpg')}}" alt="Mountains" style="width:100%"></a>
+                  <h3>Call of Duty: WWII</h3>
+                  <p>I never play any games on XBox because its sucks!! </p>
             </div>
         </div>
     </div>
 </div>
 
-<!--<footer>
-    <div>Copyright</div>
-    <div>Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a></div>
-</footer>
--->  
     
 </body>
 </html>
