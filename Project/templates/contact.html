@@ -219,7 +219,7 @@ input[type=submit], input[type=reset]:hover {
                 <input type="email" id="email" name="email" placeholder="Your email">
 
                 <label for="subject">What do you want to say?</label>
-                <textarea id="subject" name="comment" placeholder="Comments here" style="height:200px"></textarea>
+                <textarea id="subject" name="comment" placeholder="Comments here" onclick="notice()" style="height:200px"></textarea>
 
                 <input type="submit" value="Submit">
                 <input type="reset">
@@ -233,6 +233,12 @@ input[type=submit], input[type=reset]:hover {
     <div>Contact information: <a href="mailto:someone@example.com">contect@ggexplorer.com</a></div>
 </footer>
 -->  
+
+<script>
+  function notice(){
+    alert("Form submited!");
+  }
+</script>
     
 </body>
 </html>

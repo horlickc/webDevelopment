@@ -38,8 +38,9 @@ def register():
 	if request.method == 'POST':
 		usn = request.form["username"]
 		pwd = request.form["password"]
+		ema = request.form["email"]
 		cursor = db.cursor()
-		cursor.execute("""INSERT INTO userinfo (un, pw) VALUES (%s, %s)""", (usn, pwd))
+		cursor.execute("""INSERT INTO userinfo (un, pw, email, amount) VALUES (%s, %s, %s, 1000)""", (usn, pwd, ema))
 		db.commit()
 	return render_template("main.html", error = error)
 	db.close()
